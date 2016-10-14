@@ -6,3 +6,8 @@
 h1 {
 	margin:auto;
 }
+
+#difficulty {
+	width: 100px;
+	height: 1em;
+}
