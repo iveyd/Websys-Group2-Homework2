@@ -9,7 +9,7 @@ span {
 	width: 98px;
 }
 
-#newGame {
+#newGame, #next, #check {
 	width: 100px;
 	display: block;
 	margin: 10px auto;
