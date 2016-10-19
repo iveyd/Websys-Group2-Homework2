@@ -22,12 +22,18 @@ $(document).ready(function() {
 	   			}
 	   		}
 	   		// Add Title
-	   		this.append("<h1>Hexed</h1>");
+	   		this.append("<img src='resources/HEXXED.png'>");
 	   		// Add Sliders
-	   		this.append("<p class='desc'>Difficulty</p>\
-	   					 <input type='text' id='difficulty' value='0'/>\
-	   					 <p class='desc'>Turns</p>\
-	   					 <input type='text' id='turns' value='0'/>");
+	   		this.append("<div class='wrapper'>\
+	   					 <div class='left'>\
+		   					 <p class='desc'>Difficulty</p>\
+		   					 <input type='text' id='difficulty' value='0'/>\
+		   				 </div>\
+		   				 <div class='right'>\
+		   					 <p class='desc'>Turns</p>\
+		   					 <input type='text' id='turns' value='0'/>\
+		   				 </div>\
+		   				 </div");
 	   		$("#difficulty").spinner({
 	   			disabled: true,
 	   			min: 0,
@@ -63,11 +69,19 @@ $(document).ready(function() {
 	   		var r = Math.floor(Math.random() * 255) + 1;
 	   		var g = Math.floor(Math.random() * 255) + 1;
 	   		var b = Math.floor(Math.random() * 255) + 1;
-	   		this.append("<div id='Lcolor'></div>\
-	   					 <div id='Rcolor'></div>\
-	   					 <div id='red'></div>\
-	   					 <div id='green'></div>\
-	   					 <div id='blue'></div>");
+	   		this.append("<div class='wrapper'>\
+	   								 <div class='left'>\
+					   					 <p class='desc'>Random</p>\
+					   					 <div id='Lcolor'></div>\
+					   				 </div>\
+					   				 <div class='right'>\
+					   					 <p class='desc'>Player</p>\
+					   					 <div id='Rcolor'></div>\
+ 					   				 </div>\
+ 					   				 </div>\
+					   					 <div id='red'></div>\
+					   					 <div id='green'></div>\
+					   					 <div id='blue'></div>");
 	   		$("#Lcolor").css("background-color", "rgb("+r+","+g+","+b+")");
 	   		// Player color box and rgb sliders
 	   		function refreshColor() {
@@ -122,8 +136,8 @@ $(document).ready(function() {
 	   		}).on("click", function() {
 	   			// Calculate error and score
 	   			var delay = $.now()-time,
-	   					errorRed		= Math.abs(((r-$("#red").slider(	"option","value"))/255)*100),
-	   					errorGreen	= Math.abs(((g-$("#green").slider("option","value"))/255)*100),
+	   					errorRed	= Math.abs(((r-$("#red").slider(	"option","value"))/255)*100),
+	   					errorGreen	= Math.abs(((g-$("#green").slider(	"option","value"))/255)*100),
 	   					errorBlue 	= Math.abs(((b-$("#blue").slider(	"option","value"))/255)*100),
 	   					error = (errorRed+errorGreen+errorBlue)/3,
 	   					score = ((15 - difficulty - error)/(15 - difficulty))*(15000-delay);
@@ -143,8 +157,15 @@ $(document).ready(function() {
 		   			$("#next").show();
 		   		}
 	   		});
-   			this.append("<div id='score'></div>\
-   								   <div id='total'></div>");
+	   		// Divs for scoring
+   			this.append("<div class='wrapper'>\
+   						 <div class='left'>\
+	   						 <div id='score'></div>\
+	   					 </div>\
+	   					 <div class='right'>\
+	   					     <div id='total'></div>\
+   					     </div>\
+   					     </div>");
 	 			// Return self for chaining
 	      return this;
 	    };
