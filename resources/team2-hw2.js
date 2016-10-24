@@ -136,13 +136,13 @@ $(document).ready(function() {
 	   		}).on("click", function() {
 	   			// Calculate error and score
 	   			var delay = $.now()-time,
-	   					errorRed	= Math.abs(((r-$("#red").slider(	"option","value"))/255)*100),
-	   					errorGreen	= Math.abs(((g-$("#green").slider(	"option","value"))/255)*100),
-	   					errorBlue 	= Math.abs(((b-$("#blue").slider(	"option","value"))/255)*100),
-	   					error = (errorRed+errorGreen+errorBlue)/3,
-	   					score = ((15 - difficulty - error)/(15 - difficulty))*(15000-delay);
+   					errorRed	= Math.abs(((r-$("#red").slider(	"option","value"))/255)*100),
+   					errorGreen	= Math.abs(((g-$("#green").slider(	"option","value"))/255)*100),
+   					errorBlue 	= Math.abs(((b-$("#blue").slider(	"option","value"))/255)*100),
+   					error = (errorRed+errorGreen+errorBlue)/3,
+   					score = ((15 - difficulty - error)/(15 - difficulty))*(15000-delay);
 	   			if (score<0) {score=0;} // Negative score
-	   			if (delay>=15000) {score=0;}
+	   			if (delay>=15000) {score=0;} // Bug fix
 	   			total += score; // Add round to total score
 	   			// Report the score
 	   			$("#score").empty().text("Score: " + score.toFixed(2));
