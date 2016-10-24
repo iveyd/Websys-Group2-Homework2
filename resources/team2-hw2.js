@@ -142,11 +142,13 @@ $(document).ready(function() {
 	   					error = (errorRed+errorGreen+errorBlue)/3,
 	   					score = ((15 - difficulty - error)/(15 - difficulty))*(15000-delay);
 	   			if (score<0) {score=0;} // Negative score
-	   			if (delay >= 15000) {score=0;}
+	   			if (delay>=15000) {score=0;}
 	   			total += score; // Add round to total score
 	   			// Report the score
 	   			$("#score").empty().text("Score: " + score.toFixed(2));
 	   			$("#total").empty().text("Total: " + total.toFixed(2));
+	   			$("#colorSubmitted").empty().html("<h4 style='color:white'>Submitted:</h4><ul style='color:white'><li>Red: " + $("#red").slider(	"option","value") + "</li><li>Green: " + $("#green").slider(	"option","value") + "</li><li>Blue: " + $("#blue").slider(	"option","value") + "</li></ul>");
+	   			$("#percError").empty().html("<h4 style='color:white'>Error:</h4><ul style='color:white'><li>Red: " + Math.round(errorRed) + "%</li><li>Green: " + Math.round(errorGreen) + "%</li><li>Blue: " + Math.round(errorGreen) + "%</li></ul>");
 	   			// Game over
 	   			if (round==turns) {
 	   				$(this).hide();
@@ -159,14 +161,7 @@ $(document).ready(function() {
 		   		}
 	   		});
 	   		// Divs for scoring
-   			this.append("<div class='wrapper'>\
-   						 <div class='left'>\
-	   						 <div id='score'></div>\
-	   					 </div>\
-	   					 <div class='right'>\
-	   					     <div id='total'></div>\
-   					     </div>\
-   					     </div>");
+   			this.append("<div class='wrapper'><div class='left'><div id='score'></div><div id='colorSubmitted'></div> </div><div class='right'><div id='total'></div><div id='percError'></div></div></div>");
 	 			// Return self for chaining
 	      return this;
 	    };
