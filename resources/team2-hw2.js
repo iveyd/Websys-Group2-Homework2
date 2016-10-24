@@ -147,8 +147,8 @@ $(document).ready(function() {
 	   			// Report the score
 	   			$("#score").empty().text("Score: " + score.toFixed(2));
 	   			$("#total").empty().text("Total: " + total.toFixed(2));
-	   			$("#colorSubmitted").empty().html("<h4 style='color:white'>Submitted:</h4><ul style='color:white'><li>Red: " + $("#red").slider(	"option","value").toString(16) + "</li><li>Green: " + $("#green").slider(	"option","value").toString(16) + "</li><li>Blue: " + $("#blue").slider(	"option","value").toString(16) + "</li></ul>");
-	   			$("#percError").empty().html("<h4 style='color:white'>Error:</h4><ul style='color:white'><li>Red: " + Math.round(errorRed) + "%</li><li>Green: " + Math.round(errorGreen) + "%</li><li>Blue: " + Math.round(errorGreen) + "%</li></ul>");
+	   			$("#colorSubmitted").empty().html("<h4>Submitted:</h4><p style='list-style:none;display:inline;fontSize:60%'>#" + $("#red").slider(	"option","value").toString(16) + $("#green").slider(	"option","value").toString(16) + $("#blue").slider(	"option","value").toString(16) + "</p>");
+	   			$("#percError").empty().html("<h4>Error:</h4><p style='list-style:none;display:inline;fontSize:60%'>R: " + Math.round(errorRed) + "%\nG: " + Math.round(errorGreen) + "%\nB: " + Math.round(errorGreen) + "%</p>");
 	   			// Game over
 	   			if (round==turns) {
 	   				$(this).hide();
