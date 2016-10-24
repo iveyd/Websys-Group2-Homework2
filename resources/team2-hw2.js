@@ -142,6 +142,7 @@ $(document).ready(function() {
 	   					error = (errorRed+errorGreen+errorBlue)/3,
 	   					score = ((15 - difficulty - error)/(15 - difficulty))*(15000-delay);
 	   			if (score<0) {score=0;} // Negative score
+	   			if (delay >= 15000) {score=0;}
 	   			total += score; // Add round to total score
 	   			// Report the score
 	   			$("#score").empty().text("Score: " + score.toFixed(2));
