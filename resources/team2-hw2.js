@@ -147,7 +147,7 @@ $(document).ready(function() {
 	   			// Report the score
 	   			$("#score").empty().text("Score: " + score.toFixed(2));
 	   			$("#total").empty().text("Total: " + total.toFixed(2));
-	   			$("#colorSubmitted").empty().html("<h4 style='color:white'>Submitted:</h4><ul style='color:white'><li>Red: " + $("#red").slider(	"option","value") + "</li><li>Green: " + $("#green").slider(	"option","value") + "</li><li>Blue: " + $("#blue").slider(	"option","value") + "</li></ul>");
+	   			$("#colorSubmitted").empty().html("<h4 style='color:white'>Submitted:</h4><ul style='color:white'><li>Red: " + $("#red").slider(	"option","value").toString(16) + "</li><li>Green: " + $("#green").slider(	"option","value").toString(16) + "</li><li>Blue: " + $("#blue").slider(	"option","value").toString(16) + "</li></ul>");
 	   			$("#percError").empty().html("<h4 style='color:white'>Error:</h4><ul style='color:white'><li>Red: " + Math.round(errorRed) + "%</li><li>Green: " + Math.round(errorGreen) + "%</li><li>Blue: " + Math.round(errorGreen) + "%</li></ul>");
 	   			// Game over
 	   			if (round==turns) {
